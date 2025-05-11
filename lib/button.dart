@@ -1,0 +1,65 @@
+import 'package:flutter/material.dart';
+
+class Button extends StatefulWidget {
+  final String btnText;
+  void Function()? onPressed;
+  final String? imageAssetPath;
+  final Color btnBorderColor;
+  final Color foregroundColor;
+  final Color backgroundColor;
+
+  Button({
+    super.key,
+    required this.btnText,
+    required this.onPressed,
+    required this.imageAssetPath,
+    required this.btnBorderColor,
+    required this.backgroundColor,
+    required this.foregroundColor,
+  });
+
+  @override
+  State<Button> createState() => _ButtonState();
+}
+
+class _ButtonState extends State<Button> {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 300,
+      height: 50,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 0),
+        child: ElevatedButton(
+          onPressed: widget.onPressed,
+          style: ElevatedButton.styleFrom(
+            foregroundColor: widget.foregroundColor,
+            backgroundColor: widget.backgroundColor,
+            side: BorderSide(color: widget.btnBorderColor, width: 1),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (widget.imageAssetPath != null && widget.imageAssetPath!.isNotEmpty) ...[
+                Image.asset(
+                  widget.imageAssetPath !,
+                  width: 24,
+                  height: 24,
+                ),
+                const SizedBox(width: 8),
+              ],
+              Flexible(
+                child: Text(
+                  widget.btnText,
+                  style: const TextStyle(fontSize: 16),
+                ),
+              ),
+            ],
+          ),
+
+        ),
+      ),
+    );
+  }
+}
