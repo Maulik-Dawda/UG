@@ -11,15 +11,18 @@ class UgIntro extends StatefulWidget {
 class _UgIntroState extends State<UgIntro> {
   @override
   Widget build(BuildContext context) {
+
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: Colors.white,
       body:Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(height: 400,),
+              SizedBox(height: screenHeight * 0.25),
               Button(btnText: "Sign in with Phone", onPressed: (){},foregroundColor: Colors.white,backgroundColor: Colors.black,btnBorderColor: Colors.grey,imageAssetPath: "",),
-              SizedBox(height: 5,),
+              SizedBox(height: screenHeight * 0.02),
               Button(btnText: "Sign in with Google", onPressed: (){}, foregroundColor: Colors.black,backgroundColor: Colors.white,btnBorderColor: Colors.grey,imageAssetPath: "assets/btn_images/google.png",) ,
 
             ],

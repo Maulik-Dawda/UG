@@ -25,9 +25,13 @@ class Button extends StatefulWidget {
 class _ButtonState extends State<Button> {
   @override
   Widget build(BuildContext context) {
+
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return SizedBox(
-      width: 300,
-      height: 50,
+      width: screenWidth * 0.8,
+      height: screenHeight * 0.065,
       child: Padding(
         padding: const EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 0),
         child: ElevatedButton(
@@ -44,15 +48,15 @@ class _ButtonState extends State<Button> {
               if (widget.imageAssetPath != null && widget.imageAssetPath!.isNotEmpty) ...[
                 Image.asset(
                   widget.imageAssetPath !,
-                  width: 24,
-                  height: 24,
+                  width: screenHeight * 0.03,
+                  height: screenHeight * 0.03,
                 ),
-                const SizedBox(width: 8),
+                SizedBox(width: screenWidth * 0.044),
               ],
               Flexible(
                 child: Text(
                   widget.btnText,
-                  style: const TextStyle(fontSize: 16),
+                  style: TextStyle(fontSize: screenHeight * 0.022),
                 ),
               ),
             ],
