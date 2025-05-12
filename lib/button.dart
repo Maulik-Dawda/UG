@@ -29,9 +29,11 @@ class _ButtonState extends State<Button> {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
+    var buttonBorderRadius = BorderRadius.circular(10);
+    
     return SizedBox(
-      width: screenWidth * 0.8,
-      height: screenHeight * 0.065,
+      width: screenWidth * 0.7,
+      height: screenHeight * 0.09,
       child: Padding(
         padding: const EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 0),
         child: ElevatedButton(
@@ -40,6 +42,7 @@ class _ButtonState extends State<Button> {
             foregroundColor: widget.foregroundColor,
             backgroundColor: widget.backgroundColor,
             side: BorderSide(color: widget.btnBorderColor, width: 1),
+            shape: RoundedRectangleBorder(borderRadius: buttonBorderRadius),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
