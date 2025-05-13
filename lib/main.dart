@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ug_intro/ug_intro.dart';
+import 'package:ug_intro/ug_intro_1.dart';
 import 'package:ug_intro/ug_login_with_phone.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: UgLoginWithPhone(),
+      home: UgIntro1(),
     );
   }
 }
