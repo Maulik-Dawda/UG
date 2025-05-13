@@ -1,5 +1,6 @@
 import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:ug_intro/button.dart';
 import 'package:ug_intro/ug_otp_phone.dart';
 
@@ -59,7 +60,7 @@ class _UgLoginWithPhoneState extends State<UgLoginWithPhone> {
                       SizedBox(height: screenHeight * 0.035),
                       TextField(
                         controller: phoneNumber,
-                        maxLength: 15,
+                        inputFormatters: [LengthLimitingTextInputFormatter(15)],
                         keyboardType: TextInputType.phone,
                         textInputAction: TextInputAction.done,
                         maxLines: 1,
@@ -94,6 +95,7 @@ class _UgLoginWithPhoneState extends State<UgLoginWithPhone> {
                           ),
                         ),
                       ),
+                      SizedBox(height: screenHeight * 0.02,),
                       Button(
                         btnText: "Login",
                         onPressed: () {
